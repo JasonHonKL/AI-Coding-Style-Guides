@@ -277,7 +277,7 @@ From the explanation, we can see that the compressed code is indeed a valid impl
 
 ## Example 2: JSON simple parser in C++
 
-## Original Code in C++(2708 characters)
+### Original Code in C++(2708 characters)
 
 Here is another example of a simple JSON parser in C++. The original code is 2708 characters long.
 
