@@ -1,6 +1,8 @@
-# The First AI Coding Style Guide
+# The First AI Coding Style Guide 
 
 by Xinran Wang(lidangzzz)
+
+[中文版](README_CN.md)
 
 ## Quick Start
 
