@@ -48,6 +48,20 @@ Based on these core principles, we have carefully designed a set of basic rules 
 
 9. Let the large language model handle the code compression process, as it can automatically apply these principles to achieve optimal results.
 
+## Levels of Compression
+
+| Level | Description                                                                                        | Remove unnecessary whitespace | Merge lines | Shorten local vars | Shorten non-exported names | Remove **all** whitespace | Keep comments (exported only) | Remove **all** comments | Use language-specific shortening tricks |
+| :---: | -------------------------------------------------------------------------------------------------- | :---------------------------: | :---------: | :----------------: | :------------------------: | :-----------------------: | :---------------------------: | :---------------------: | :-------------------------------------: |
+|   1   | Remove extra spaces and newlines only                                                              |               ✅               |      ❌      |          ❌         |              ❌             |             ❌             |            ✅ (all)            |            ❌            |                    ❌                    |
+|   2   | Level 1 + slight compression by merging lines                                                      |               ✅               |      ✅      |          ❌         |              ❌             |             ❌             |            ✅ (all)            |            ❌            |                    ❌                    |
+|   3   | Level 2 + shorten local variable names                                                             |               ✅               |      ✅      |          ✅         |              ❌             |             ❌             |            ✅ (all)            |            ❌            |                    ❌                    |
+|   4   | Level 3 + shorten non-exported identifiers                                                         |               ✅               |      ✅      |          ✅         |              ✅             |             ❌             |            ✅ (all)            |            ❌            |                    ❌                    |
+|   5   | Level 4 + remove **all** whitespace                                                                |               ✅               |      ✅      |          ✅         |              ✅             |             ✅             |            ✅ (all)            |            ❌            |                    ❌                    |
+|   6   | Level 5 + remove all comments **except** those for exported items                                  |               ✅               |      ✅      |          ✅         |              ✅             |             ✅             |       ✅ (exported only)       |  ❌ (non-exported only)  |                    ❌                    |
+|   7   | Level 6 + remove **all** comments                                                                  |               ✅               |      ✅      |          ✅         |              ✅             |             ✅             |               ❌               |            ✅            |                    ❌                    |
+|   8   | Level 7 + use any language features (e.g., lambdas, built-ins, libraries) to minimize code further |               ✅               |      ✅      |          ✅         |              ✅             |             ✅             |         ✅ (if useful)         |    ✅ (unless needed)    |                    ✅                    |
+
+
 ## Example 1: KMP String Matching Algorithm
 
 ### Original Code in TypeScript(1216 characters)
