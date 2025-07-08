@@ -2,6 +2,23 @@
 
 by Xinran Wang(lidangzzz)
 
+## Quick Start
+
+Open the [`AI_Coding_Style_Guide_prompts.toml`](AI_Coding_Style_Guide_prompts.toml) file in your favorite text editor, and you will find a collection of prompts that can be used to guide large language models in compressing code. You can use these prompts to instruct large language models to follow the coding style guides and compress code according to the principles outlined in this document.
+
+If you want to use these prompts in your own projects, you can copy the contents of the `AI_Coding_Style_Guide_prompts.toml` file and paste them into your own prompt management system. You can also modify the prompts to suit your specific needs.
+
+If you want to load these prompts into your own prompt management system, you can use the following code snippet:
+
+```python
+import toml 
+from pathlib import Path
+def load_prompts(file_path: str) -> dict:
+    """Load prompts from a TOML file."""
+    return toml.load(Path(file_path))
+prompts = load_prompts("AI_Coding_Style_Guide_prompts.toml")
+```
+
 ## Introduction
 
 When I use vibe coding or SWE Agent, I often encounter the issue of insufficient context window size. If we feed multiple source code files at once and the total length exceeds the context window, we are forced to selectively include only some of the files. This can cause the large language model to lose part of the necessary context.
