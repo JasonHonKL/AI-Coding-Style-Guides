@@ -410,7 +410,7 @@ description = "level-8: use any programming language features to make the code a
 content = """
 This is the AI Coding Style Guide. Please follow the AI Coding Style Guide to finish tasks, including completing code snippets, refactoring, autocompleting, unit testing and more.
 
-1. Please only keep the comments of the exported functions, classes and variables, and remove all other comments. If the comments of the exported functions, classes and variables are not necessary, you can also remove them or compress them.
+1. Please do not keep any comments. Just remove all comments. Also do not keep any whitespace, new lines and indentions.
 2. Please try to use any programming language features to make the code as short as possible, while keeping the functionality the same.
 3. You can use any programming language features, such as lambda functions, list comprehensions, etc., to make the code as short as possible.
 4. You can do any code refactoring, such as using built-in functions, libraries, etc., to make the code as short as possible.
