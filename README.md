@@ -108,55 +108,54 @@ function kmpSearch(text: string, pattern: string): number[] {
 }
 ```
 
-### Slightly Compressed Code in TypeScript(1100 characters, ~91.2% of the original size)
+### Slightly Compressed Code in TypeScript(795 characters, ~65.4% of the original size)
 
-After removing unnecessary spaces and line breaks but keeping all code indentations, the code is reduced to 1100 characters(~91.2% of the original size):
+After removing unnecessary spaces and line breaks but keeping all code indentations, the code is reduced to 795 characters(~65.4% of the original size):
 
 ```typescript
 // Function to build the Longest Prefix Suffix (LPS) array
 function buildLPS(pattern:string):number[]{
-    const lps: number[]=new Array(pattern.length).fill(0);
-    let len=0;
-    let i=1;
-    while (i<pattern.length) {
-        if (pattern[i]===pattern[len]) {
-            len++;
-            lps[i]=len;
-            i++;
-        } else {
-            if (len!== 0) {
-                len=lps[len-1];
-            } else {
-                lps[i]=0;
-                i++;
-            }
-        }
-    }
-    return lps;
+ let lps:number[]=new Array(pattern.length).fill(0);
+ let len=0,i=1;
+ while(i<pattern.length){
+  if(pattern[i]===pattern[len]){
+   len++;
+   lps[i]=len;
+   i++;
+  }else{
+   if(len!==0){
+    len=lps[len-1];
+   }else{
+    lps[i]=0;
+    i++;
+   }
+  }
+ }
+ return lps;
 }
+
 // KMP search function: returns all starting indices where pattern is found in text
 function kmpSearch(text:string,pattern:string):number[]{
-    const lps=buildLPS(pattern);
-    const result:number[]=[];
-    let i=0;
-    let j=0;
-    while (i<text.length) {
-        if (pattern[j]===text[i]) {
-            i++;
-            j++;
-        }
-        if (j===pattern.length) {
-            result.push(i-j);
-            j = lps[j-1];
-        } else if (i<text.length&&pattern[j]!==text[i]) {
-            if (j!==0) {
-                j=lps[j-1];
-            }else{
-                i++;
-            }
-        }
-    }
-    return result;
+ let lps=buildLPS(pattern);
+ let result:number[]=[];
+ let i=0,j=0;
+ while(i<text.length){
+  if(pattern[j]===text[i]){
+   i++;
+   j++;
+  }
+  if(j===pattern.length){
+   result.push(i-j);
+   j=lps[j-1];
+  }else if(i<text.length&&pattern[j]!==text[i]){
+   if(j!==0){
+    j=lps[j-1];
+   }else{
+    i++;
+   }
+  }
+ }
+ return result;
 }
 ```
 
