@@ -136,6 +136,7 @@ int main(){
  int a=1,b=2,c=a+b;
  std::cout<<c<<std::endl;
 }
+```
 
 4. Try to make local variables shorter, but do not change the logic of the code. Here is an example:
 ```cpp
